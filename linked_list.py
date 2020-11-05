@@ -65,7 +65,26 @@ class LinkedList:
                 break
             i = i.next
             k += 1
-        
+
+    def get_at_index(self, index):
+        if index < 0 or index >= self.len_linked_list():
+            print('index out of range')
+            return
+
+        i = self.head
+
+        if index == 0:
+            print(i.data)
+            return 
+
+        k = 0
+        while i:
+            if k == index:
+                print(i.data)
+                return
+            i = i.next
+            k += 1
+
     def len_linked_list(self):
         lenth = 1
 
@@ -90,6 +109,6 @@ class LinkedList:
 
 
 ll  = LinkedList()
-ll.add_value_beggining(100)
-ll.add_multiple_values_beggining_order([1,20,3])
+ll.add_multiple_values_beggining_order([1, 2, 3, 4, 5, 6])
 ll.display()
+ll.get_at_index(4)
