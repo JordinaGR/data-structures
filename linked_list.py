@@ -107,8 +107,29 @@ class LinkedList:
 
         print(string)
 
+    def cycle_detection(self):
+        if self.head is None:
+            print('empty list')
+            return False
+
+        fast = self.head
+        slow = self.head
+
+        while self.head.next is not None and self.head.next.next is not None:
+            if fast == slow:
+                print('cycle found')
+                return True
+            else:
+                fast += fast.next.next
+                slow += slow.next
+
+        print('no cycle')
+        return False
 
 ll  = LinkedList()
-ll.add_multiple_values_beggining_order([1, 2, 3, 4, 5, 6])
+ll.add_value_beggining(1)
+ll.add_value_final(2)
+ll.add_multiple_values_beggining_order([3, 4])
+ll.cycle_detection()
 ll.display()
-ll.get_at_index(4)
+
